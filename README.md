@@ -1,3 +1,3 @@
 
-# BLE MIDI to wried for Raspberry Pi Zero
+# BLE MIDI to wired for Raspberry Pi Zero
 
