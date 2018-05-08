@@ -28,6 +28,7 @@ noble.on('discover', function(device) {
 
 var onconnect = function(device) {
     console.error("Connected to " + device.advertisement.localName);
+    device.once('disconnect', ondisconnect);
     device.discoverServices(["03b80e5aede84b33a7516ce34ec4c700"], function(error, services) {
         if (error != null)
             console.error(error);
@@ -65,6 +66,10 @@ var work = function (device, char) {
 var onread = function (data, isnotify) {
     //console.error(data);
     process.stdout.write(data);
+}
+
+var ondisconnect = function () {
+    noble.startScanning();
 }
 
 noble.on('stateChange', function(state) {
